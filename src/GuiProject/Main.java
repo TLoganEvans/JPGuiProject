@@ -8,13 +8,13 @@ package GuiProject;
  */
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import static GuiProject.dbHandler.*;
@@ -46,16 +46,11 @@ public class Main extends Application {
 
         GridPane root = new GridPane();
         root.setId("GridPane");
-        root.setAlignment(Pos.BOTTOM_CENTER);
-        root.setPadding(new Insets(10,10,100,10));
-        root.setHgap(45);
-        root.setVgap(10);
 
         /**
          * "Back" Buttons
          */
         Button atkMenuBtn = new Button("BACK");
-        atkMenuBtn.setPrefSize(125,65);
         atkMenuBtn.setOnAction(event -> {
             System.out.println("You chose to go to menu.");
             primaryStage.setScene(mainMenu);
@@ -63,7 +58,6 @@ public class Main extends Application {
         });
 
         Button defMenuBtn = new Button("BACK");
-        defMenuBtn.setPrefSize(125,65);
         defMenuBtn.setOnAction(event -> {
             System.out.println("You chose to go to menu.");
             primaryStage.setScene(mainMenu);
@@ -74,7 +68,6 @@ public class Main extends Application {
          * Selection Scene Buttons
          */
         Button atk = new Button("ATTACKERS");
-        atk.setPrefSize(125,65);
         GridPane.setRowIndex(atk, 0);
         GridPane.setColumnIndex(atk, 0);
         atk.setOnAction(event -> {
@@ -84,7 +77,6 @@ public class Main extends Application {
         });
 
         Button def = new Button("DEFENDERS");
-        def.setPrefSize(125,65);
         GridPane.setRowIndex(def, 0);
         GridPane.setColumnIndex(def, 1);
         def.setOnAction(event -> {
@@ -96,7 +88,6 @@ public class Main extends Application {
          * Selection buttons
          */
         Button chooseAtk = new Button("PICK FOR ME");
-        chooseAtk.setPrefSize(150,65);
         chooseAtk.setOnAction(event -> {
             System.out.println("Choosing Attacking Operator");
 
@@ -114,7 +105,6 @@ public class Main extends Application {
         });
 
         Button chooseDef = new Button("PICK FOR ME");
-        chooseDef.setPrefSize(150,65);
         chooseDef.setOnAction(event -> {
             System.out.println("Choosing Defense Operator");
 
@@ -138,22 +128,21 @@ public class Main extends Application {
         atkPane.setId("atkPane");
         atkScene = new Scene(atkPane, 950, 633);
         atkScene.getStylesheets().add("GuiProject/ProjectStyle.css");
-        atkPane.setPadding(new Insets(10,10,50,10));
 
         Image opIconsAtk = new Image("GuiProject/images/attackerIconBatchRedesign.png");
         atkPane.setCenter(new ImageView(opIconsAtk));
 
         HBox atkBoxLeft = new HBox();
+        atkBoxLeft.setId("atkBoxLeft");
         atkBoxLeft.getChildren().addAll(atkMenuBtn);
 
         atkPane.setLeft(atkBoxLeft);
-        atkBoxLeft.setAlignment(Pos.BOTTOM_LEFT);
 
         HBox atkBoxRight = new HBox();
+        atkBoxRight.setId("atkBoxRight");
         atkBoxRight.getChildren().add(chooseAtk);
 
         atkPane.setRight(atkBoxRight);
-        atkBoxRight.setAlignment(Pos.BOTTOM_RIGHT);
 
         /**
          * Defender Selection Scene
@@ -162,22 +151,21 @@ public class Main extends Application {
         defPane.setId("defPane");
         defScene = new Scene(defPane, 950, 633);
         defScene.getStylesheets().add("GuiProject/ProjectStyle.css");
-        defPane.setPadding(new Insets(10,10,50,10));
 
         Image opIconsDef = new Image("GuiProject/images/defenderIconBatchRedesign.png");
         defPane.setCenter(new ImageView(opIconsDef));
 
         HBox defBoxLeft = new HBox();
+        defBoxLeft.setId("defBoxLeft");
         defBoxLeft.getChildren().add(defMenuBtn);
 
         defPane.setLeft(defBoxLeft);
-        defBoxLeft.setAlignment(Pos.BOTTOM_LEFT);
 
         HBox defBoxRight = new HBox();
+        defBoxRight.setId("defBoxRight");
         defBoxRight.getChildren().add(chooseDef);
 
         defPane.setRight(defBoxRight);
-        defBoxRight.setAlignment(Pos.BOTTOM_RIGHT);
 
         /**
          * Primary Scene
