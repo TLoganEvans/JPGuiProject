@@ -31,12 +31,12 @@ public class Main extends Application {
     /**
      * Handling of Operator
      */
-    public static String[] atkOperator;
-    public static String[] defOperator;
-    public String atkName = "";
-    public String atkImage = "";
-    public String defName = "";
-    public String defImage = "";
+    private static String[] atkOperator;
+    private static String[] defOperator;
+    private String atkName = "";
+    private String atkImage = "";
+    private String defName = "";
+    private String defImage = "";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
