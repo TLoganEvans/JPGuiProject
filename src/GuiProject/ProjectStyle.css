@@ -1,4 +1,7 @@
 Button{
+    -fx-pref-height: 65px;
+    -fx-min-width: 125px;
+    -fx-max-width: 150px;
     -fx-background-color: #36a9e0;
     -fx-text-fill: #fff;
     -fx-font-size: 21px;
@@ -7,12 +10,34 @@ Button{
 
 #GridPane{
     -fx-background-image: url("images/rainbowBackground.png");
+    -fx-alignment: BOTTOM_CENTER;
+    -fx-hgap: 50px;
+    -fx-vgap: 10px;
+    -fx-padding: 100px, 10px, 10px, 10px;
 }
 
 #atkPane{
     -fx-background-image: url("images/rainbowBackground.png");
+    -fx-padding: 50px, 10px, 10px, 10px;
+}
+
+#atkBoxLeft{
+    -fx-alignment: BOTTOM_LEFT;
+}
+
+#atkBoxRight{
+    -fx-alignment: BOTTOM_RIGHT;
 }
 
 #defPane{
     -fx-background-image: url("images/rainbowBackground.png");
+    -fx-padding: 50px, 10px, 10px, 10px;
+}
+
+#defBoxLeft{
+    -fx-alignment: BOTTOM_LEFT;
+}
+
+#defBoxRight{
+    -fx-alignment: BOTTOM_RIGHT;
 }
