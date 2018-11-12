@@ -17,5 +17,5 @@ Evans, Trevor
 Ubisoft Entertainment SA   
 Vanselow, Scott
 
-## License
+## License/Copyright
 © 2018, Trevor Evans
