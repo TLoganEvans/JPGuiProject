@@ -26,17 +26,24 @@ public class Main extends Application {
      */
     private Scene mainMenu,
             atkScene,
-            defScene;
+            defScene,
+            atkOpScene,
+            defOpScene;
 
     /**
      * Handling of Operator
      */
     private static String[] atkOperator;
     private static String[] defOperator;
+
     private String atkName = "";
     private String atkImage = "";
+
     private String defName = "";
     private String defImage = "";
+
+    public Operator atkOperatorObj = new Operator();
+    public Operator defOperatorObj = new Operator();
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -48,20 +55,30 @@ public class Main extends Application {
         root.setId("GridPane");
 
         /**
-         * "Back" Buttons
+         * "Back To Menu" Buttons
          */
         Button atkMenuBtn = new Button("BACK");
         atkMenuBtn.setOnAction(event -> {
             System.out.println("You chose to go to menu.");
             primaryStage.setScene(mainMenu);
-
         });
 
         Button defMenuBtn = new Button("BACK");
         defMenuBtn.setOnAction(event -> {
             System.out.println("You chose to go to menu.");
             primaryStage.setScene(mainMenu);
+        });
 
+        Button atkOpMenuBtn = new Button("BACK");
+        atkOpMenuBtn.setOnAction(event -> {
+            System.out.println("You chose to go to menu.");
+            primaryStage.setScene(mainMenu);
+        });
+
+        Button defOpMenuBtn = new Button("BACK");
+        defOpMenuBtn.setOnAction(event -> {
+            System.out.println("You chose to go to menu.");
+            primaryStage.setScene(mainMenu);
         });
 
         /**
@@ -88,38 +105,16 @@ public class Main extends Application {
          * Selection buttons
          */
         Button chooseAtk = new Button("PICK FOR ME");
-        chooseAtk.setOnAction(event -> {
-            System.out.println("Choosing Attacking Operator");
+        chooseAttackOp(primaryStage, chooseAtk);
 
-            try {
-                atkOperator = getAtkOperator();
-                System.out.println();
-                atkName = atkOperator[0];
-                atkImage = atkOperator[1];
-                System.out.println("Name: " + atkName + "\nImage: " + atkImage);
-                System.out.println();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        });
+        Button chooseAtkAgain = new Button("PICK FOR ME");
+        chooseAttackOp(primaryStage, chooseAtkAgain);
 
         Button chooseDef = new Button("PICK FOR ME");
-        chooseDef.setOnAction(event -> {
-            System.out.println("Choosing Defense Operator");
+        chooseDefOp(primaryStage, chooseDef);
 
-            try {
-                defOperator = getDefOperator();
-                System.out.println();
-                defName = defOperator[0];
-                defImage = defOperator[1];
-                System.out.println("Name: " + defName + "\nImage: " + defImage);
-                System.out.println();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        });
+        Button chooseDefAgain = new Button("PICK FOR ME");
+        chooseDefOp(primaryStage, chooseDefAgain);
 
         /**
          * Attacker Selection Scene
@@ -168,6 +163,56 @@ public class Main extends Application {
         defPane.setRight(defBoxRight);
 
         /**
+         * Selected Attack Operator Scene
+         */
+        BorderPane atkOpPane = new BorderPane();
+        atkOpPane.setId("atkOpPane");
+        atkOpScene = new Scene(atkOpPane,950,633);
+        atkOpScene.getStylesheets().add("GuiProject/ProjectStyle.css");
+
+        Image atkOperatorImage = new Image(atkOperatorObj.getImagePath());
+        ImageView atkOpImage = new ImageView(atkOperatorImage);
+        atkOpImage.setFitHeight(575);
+        atkOpImage.setPreserveRatio(true);
+        atkOpPane.setCenter(atkOpImage);
+
+        HBox atkOpRight = new HBox();
+        atkOpRight.setId("atkOpRight");
+        atkOpRight.getChildren().add(chooseAtkAgain);
+
+        HBox atkOpLeft = new HBox();
+        atkOpLeft.setId("atkOpLeft");
+        atkOpLeft.getChildren().add(atkOpMenuBtn);
+
+        atkOpPane.setRight(atkOpRight);
+        atkOpPane.setLeft(atkOpLeft);
+
+        /**
+         * Selected Defender Operator Scene
+         */
+        BorderPane defOpPane = new BorderPane();
+        defOpPane.setId("defOpPane");
+        defOpScene = new Scene(defOpPane, 950,633);
+        defOpScene.getStylesheets().add("GuiProject/ProjectStyle.css");
+
+        Image defOperatorImage = new Image(atkOperatorObj.getImagePath());
+        ImageView defOpImage = new ImageView(defOperatorImage);
+        defOpImage.setFitHeight(575);
+        defOpImage.setPreserveRatio(true);
+        defOpPane.setCenter(defOpImage);
+
+        HBox defOpRight = new HBox();
+        defOpRight.setId("defOpRight");
+        defOpRight.getChildren().add(chooseDefAgain);
+
+        HBox defOpLeft = new HBox();
+        defOpLeft.setId("defOpLeft");
+        defOpLeft.getChildren().add(defOpMenuBtn);
+
+        defOpPane.setRight(defOpRight);
+        defOpPane.setLeft(defOpLeft);
+
+        /**
          * Primary Scene
          */
         root.getChildren().add(atk);
@@ -183,9 +228,53 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    private void chooseAttackOp(Stage primaryStage, Button chooseAtkOp) {
+        chooseAtkOp.setOnAction(event -> {
+            System.out.println("Choosing Attacking Operator");
+
+            try {
+                atkOperator = getAtkOperator();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println();
+            atkName = atkOperator[0];
+            atkImage = atkOperator[1];
+            System.out.println("Name: " + atkName + "\nImage: " + atkImage);
+            System.out.println();
+
+            atkOperatorObj.setName(atkName);
+            atkOperatorObj.setImagePath(atkImage);
+
+            primaryStage.setScene(atkOpScene);
+        });
+    }
+
+    private void chooseDefOp(Stage primaryStage, Button chooseDefOp) {
+        chooseDefOp.setOnAction(event -> {
+            System.out.println("Choosing Defense Operator");
+
+            try {
+                defOperator = getDefOperator();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println();
+            defName = defOperator[0];
+            defImage = defOperator[1];
+            System.out.println("Name: " + defName + "\nImage: " + defImage);
+            System.out.println();
+
+            defOperatorObj.setName(defName);
+            defOperatorObj.setImagePath(defImage);
+
+            primaryStage.setScene(defOpScene);
+        });
+    }
+
 
     public static void main(String[] args) throws Exception {
-        createConnection();
+        dbHandler.createConnection();
         launch(args);
     }
 }

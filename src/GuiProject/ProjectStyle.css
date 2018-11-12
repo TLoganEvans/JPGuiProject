@@ -41,3 +41,30 @@ Button{
 #defBoxRight{
     -fx-alignment: BOTTOM_RIGHT;
 }
+
+#atkOpPane{
+    -fx-background-image: url("images/rainbowBackground.png");
+    -fx-padding: 50px, 10px, 10px, 10px;
+}
+
+#atkOpLeft{
+    -fx-alignment: BOTTOM_LEFT;
+}
+
+#atkOpRight{
+    -fx-alignment: BOTTOM_RIGHT;
+}
+
+#defOpPane{
+    -fx-background-image: url("images/rainbowBackground.png");
+    -fx-padding: 50px, 10px, 10px, 10px;
+}
+
+#defOpLeft{
+    -fx-alignment: BOTTOM_LEFT;
+}
+
+#defOpRight{
+    -fx-alignment: BOTTOM_RIGHT;
+}
+

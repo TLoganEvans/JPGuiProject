@@ -24,8 +24,7 @@ public class dbHandler {
      */
     public static Connection createConnection() throws Exception {
         Class.forName(DRIVER);
-        Connection conn = null;
-        conn = DriverManager.getConnection(dbURL);
+        Connection conn = DriverManager.getConnection(dbURL);
         return conn;
     }
 
@@ -48,7 +47,6 @@ public class dbHandler {
                 atkArr[0] = name;
                 atkArr[1] = image;
             }
-            rset.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -75,7 +73,6 @@ public class dbHandler {
                 defArr[0] = name;
                 defArr[1] = image;
             }
-            rset.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
