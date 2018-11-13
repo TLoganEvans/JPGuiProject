@@ -1,3 +1,8 @@
+BorderPane{
+    -fx-background-image: url("images/rainbowBackground.png");
+    -fx-padding: 50px, 10px, 10px, 10px;
+}
+
 Button{
     -fx-pref-height: 65px;
     -fx-min-width: 125px;
@@ -16,22 +21,12 @@ Button{
     -fx-padding: 100px, 10px, 10px, 10px;
 }
 
-#atkPane{
-    -fx-background-image: url("images/rainbowBackground.png");
-    -fx-padding: 50px, 10px, 10px, 10px;
-}
-
 #atkBoxLeft{
     -fx-alignment: BOTTOM_LEFT;
 }
 
 #atkBoxRight{
     -fx-alignment: BOTTOM_RIGHT;
-}
-
-#defPane{
-    -fx-background-image: url("images/rainbowBackground.png");
-    -fx-padding: 50px, 10px, 10px, 10px;
 }
 
 #defBoxLeft{
@@ -42,22 +37,12 @@ Button{
     -fx-alignment: BOTTOM_RIGHT;
 }
 
-#atkOpPane{
-    -fx-background-image: url("images/rainbowBackground.png");
-    -fx-padding: 50px, 10px, 10px, 10px;
-}
-
 #atkOpLeft{
     -fx-alignment: BOTTOM_LEFT;
 }
 
 #atkOpRight{
     -fx-alignment: BOTTOM_RIGHT;
-}
-
-#defOpPane{
-    -fx-background-image: url("images/rainbowBackground.png");
-    -fx-padding: 50px, 10px, 10px, 10px;
 }
 
 #defOpLeft{
