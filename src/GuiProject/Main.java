@@ -1,10 +1,10 @@
 package GuiProject;
 
 /*
-  Author: Trevor Evans
-  Date: 06-Nov-18
-  Time: 5:27 PM
-  Description:
+ * Author: Trevor Evans
+ * Date: 06-Nov-18
+ * Time: 5:27 PM
+ * Description:
  */
 
 import javafx.application.Application;

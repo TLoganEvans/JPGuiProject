@@ -2,7 +2,7 @@ package GuiProject;
 
 import java.sql.*;
 
-/**
+/*
  * Author: Trevor Evans
  * Date: 06-Nov-18
  * Time: 5:54 PM
