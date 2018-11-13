@@ -1,7 +1,6 @@
 package GuiProject;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 /**
  * Author: Trevor Evans
@@ -9,11 +8,12 @@ import java.util.ArrayList;
  * Time: 5:54 PM
  * Description:
  */
-public class dbHandler {
+class dbHandler {
 
     private static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
     private static final String dbURL = "jdbc:derby:OperatorData";
 
+    private static Connection conn = null;
     private static Statement stmt = null;
     private static ResultSet rset = null;
 
@@ -22,9 +22,9 @@ public class dbHandler {
      * @return
      * @throws Exception
      */
-    public static Connection createConnection() throws Exception {
+    static Connection createConnection() throws Exception {
         Class.forName(DRIVER);
-        Connection conn = DriverManager.getConnection(dbURL);
+        conn = DriverManager.getConnection(dbURL);
         return conn;
     }
 
@@ -32,12 +32,12 @@ public class dbHandler {
      *
      * @throws Exception
      */
-    public static String[] getAtkOperator() throws Exception {
+    static String[] getAtkOperator() throws Exception {
 
         String[] atkArr = new String[2];
 
         try{
-            Connection conn = createConnection();
+            conn = createConnection();
             stmt = conn.createStatement();
             rset = stmt.executeQuery("SELECT * FROM ATTACKERS ORDER BY RANDOM() OFFSET 0 ROWS " +
                                     "FETCH NEXT 1 ROW ONLY");
@@ -58,12 +58,12 @@ public class dbHandler {
      *
      * @throws Exception
      */
-    public static String[] getDefOperator() throws Exception {
+    static String[] getDefOperator() throws Exception {
 
         String[] defArr = new String[2];
 
         try{
-            Connection conn = createConnection();
+            conn = createConnection();
             stmt = conn.createStatement();
             rset = stmt.executeQuery("SELECT * FROM DEFENDERS ORDER BY RANDOM() OFFSET 0 ROWS " +
                                     "FETCH NEXT 1 ROW ONLY");
