@@ -1,9 +1,9 @@
-BorderPane{
+BorderPane {
     -fx-background-image: url("images/rainbowBackground.png");
-    -fx-padding: 50px, 10px, 10px, 10px;
+    -fx-padding: 25px, 5px, 50px, 5px;
 }
 
-Button{
+Button {
     -fx-pref-height: 65px;
     -fx-min-width: 125px;
     -fx-max-width: 150px;
@@ -13,7 +13,16 @@ Button{
     -fx-font-family: 'Franklin Gothic Demi Cond';
 }
 
-#GridPane{
+Label {
+    -fx-padding: 10px, 10px, 10px, 10px;
+    -fx-font-family: "Franklin Gothic Demi Cond";
+    -fx-font-size: 30px;
+    -fx-text-fill: #fff;
+    -fx-background-color: #36a9e0;
+    -fx-background-radius: 2px;
+}
+
+#GridPane {
     -fx-background-image: url("images/rainbowBackground.png");
     -fx-alignment: BOTTOM_CENTER;
     -fx-hgap: 50px;
@@ -21,35 +30,35 @@ Button{
     -fx-padding: 100px, 10px, 10px, 10px;
 }
 
-#atkBoxLeft{
+#atkBoxLeft {
     -fx-alignment: BOTTOM_LEFT;
 }
 
-#atkBoxRight{
+#atkBoxRight {
     -fx-alignment: BOTTOM_RIGHT;
 }
 
-#defBoxLeft{
+#defBoxLeft {
     -fx-alignment: BOTTOM_LEFT;
 }
 
-#defBoxRight{
+#defBoxRight {
     -fx-alignment: BOTTOM_RIGHT;
 }
 
-#atkOpLeft{
+#atkOpLeft {
     -fx-alignment: BOTTOM_LEFT;
 }
 
-#atkOpRight{
+#atkOpRight {
     -fx-alignment: BOTTOM_RIGHT;
 }
 
-#defOpLeft{
+#defOpLeft {
     -fx-alignment: BOTTOM_LEFT;
 }
 
-#defOpRight{
+#defOpRight {
     -fx-alignment: BOTTOM_RIGHT;
 }
 
