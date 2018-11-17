@@ -1,13 +1,14 @@
 package GuiProject;
 
-import java.sql.*;
-
 /*
  * Author: Trevor Evans
  * Date: 06-Nov-18
  * Time: 5:54 PM
- * Description:
+ * Description: File that handles methods of connecting and reading from the embedded Derby database.
  */
+
+import java.sql.*;
+
 class DbHandler {
 
   private static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
@@ -18,8 +19,11 @@ class DbHandler {
   private static ResultSet rset = null;
 
   /**
-   * @return
-   * @throws Exception
+   * Method to establish connection to embedded Derby database.
+   *
+   * @return conn - used in following methods to create a connection to the database and allow for
+   *     querying.
+   * @throws Exception - SQL exception should the database not be found/error.
    */
   static Connection createConnection() throws Exception {
     Class.forName(DRIVER);
@@ -28,8 +32,11 @@ class DbHandler {
   }
 
   /**
-   * @return
-   * @throws Exception
+   * Method to query embedded Derby database's table "ATTACKERS", returns a single random attacking
+   * operator's information via String array.
+   *
+   * @return atkArr - String array holding information for selected attacker operator.
+   * @throws Exception - SQL exception should the database not be found/error.
    */
   static String[] getAtkOperator() throws Exception {
 
@@ -54,7 +61,13 @@ class DbHandler {
     return atkArr;
   }
 
-  /** @throws Exception */
+  /**
+   * Method to query embedded Derby database's table "ATTACKERS", returns a single random defending
+   * operator's information via String array.
+   *
+   * @return atkArr - String array holding information for selected defender operator.
+   * @throws Exception - SQL exception should the database not be found/error.
+   */
   static String[] getDefOperator() throws Exception {
 
     String[] defArr = new String[2];

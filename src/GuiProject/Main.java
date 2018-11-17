@@ -4,7 +4,7 @@ package GuiProject;
  * Author: Trevor Evans
  * Date: 06-Nov-18
  * Time: 5:27 PM
- * Description:
+ * Description: Main file that handles stage/scene creation, UI design, and controller functionality.
  */
 
 import javafx.application.Application;
@@ -29,6 +29,12 @@ public class Main extends Application {
   private static String[] atkOperator;
   private static String[] defOperator;
 
+  /**
+   * Creates stage/scene management through controls (buttons). Hardcoded JavaFx gui.
+   *
+   * @param primaryStage - handles the Stage variable of the entire application.
+   * @throws Exception - General exception handler, never thrown.
+   */
   @Override
   public void start(Stage primaryStage) throws Exception {
 
@@ -158,7 +164,7 @@ public class Main extends Application {
    * read operator * information from derby database "OperatorData".
    *
    * @param primaryStage - utilized for application Stage control.
-   * @param chooseAtkOp -
+   * @param chooseAtkOp - button passed in to handle overall ActionEvent.
    */
   private void chooseAttackOp(Stage primaryStage, Button chooseAtkOp) {
     chooseAtkOp.setOnAction(
@@ -233,7 +239,7 @@ public class Main extends Application {
    * read operator information from derby database "OperatorData".
    *
    * @param primaryStage - utilized for application Stage control.
-   * @param chooseDefOpBtn - controls actionEvent for button(s) passed in.
+   * @param chooseDefOpBtn - controls ActionEvent for button(s) passed in.
    */
   private void chooseDefOp(Stage primaryStage, Button chooseDefOpBtn) {
     chooseDefOpBtn.setOnAction(
